@@ -8,6 +8,7 @@ export const Input = ({
   className,
   label,
   name,
+  onChange,
   register = () => ({}),
   rows = 3,
 }) => {
@@ -33,6 +34,7 @@ export const Input = ({
         />
       ) : (
         <input
+          onChange={onChange}
           {...register(name)}
           type={type}
           placeholder={placeholder}

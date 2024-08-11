@@ -2,6 +2,7 @@ import React from "react";
 import LogOutBtn from "../../components/logOutBtn";
 import useRenderAllProducts from "./services/useRenderAllProducts";
 import RenderProducts from "./components/renderProducts";
+import SearchProducts from "./components/searchProducts";
 
 export const Bag = () => {
   const { data } = useRenderAllProducts();
@@ -18,7 +19,10 @@ export const Bag = () => {
         </div>
       </div>
       <div className="container mt-[120px]">
-        <div className="bg-white py-20 px-14 min-h-[500px] rounded-12">
+        <div className="bg-white pt-10 pb-20 px-14 min-h-[500px] rounded-12">
+          <div className="mb-10">
+            <SearchProducts />
+          </div>
           <div className="flex flex-wrap gap-12 justify-evenly">
             {data?.map((product) => (
               <RenderProducts key={product.id} {...product} />

@@ -2,11 +2,10 @@ import React from "react";
 import { useRenderCategories } from "./services/useRenderCategories";
 import { Categories } from "./components/categories";
 import { LogOutBtn } from "../../components/logOutBtn";
-import Input from "../../components/ui/input";
 import { useForm } from "react-hook-form";
-import { IoSearchSharp } from "react-icons/io5";
 import Button from "../../components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { Search } from "./components/search";
 
 export const Home = () => {
   const { data } = useRenderCategories();
@@ -35,16 +34,7 @@ export const Home = () => {
               variant={"show"}
               children={"Create Category"}
             />
-            <div
-              className={`flex items-center mr-14 gap-0 px-5 ml-auto rounded-12 bg-eee transition-all duration-500 ${
-                focused ? "w-[70%]" : "w-[20%]"
-              }`}
-              onClick={() => setFocused(true)}
-              onBlur={() => setFocused(false)}
-            >
-              <IoSearchSharp className="text-gray-500 w-7 h-auto" />
-              <Input placeholder={"Поиск"} name="name" register={register} />
-            </div>
+            <Search />
           </div>
           <div>
             <div className="flex items-center mb-4 justify-between w-[75%] ml-12">
