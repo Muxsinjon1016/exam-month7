@@ -16,7 +16,7 @@ export const SearchProducts = ({ register }) => {
       <Input
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="Поиск"
-        className="w-full"
+        className="w-[1070px]"
         name="name"
         register={register}
       />

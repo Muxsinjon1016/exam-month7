@@ -44,7 +44,7 @@ export const RenderProducts = ({ title, url, description, price, id }) => {
   return (
     <>
       <div>
-        <div className="bg-gray-200 w-[200px] rounded-12 border-2 border-gray-200 overflow-hidden">
+        <div className="bg-gray-200 mx-auto mb-4 w-[200px] rounded-12 border-2 border-gray-200 overflow-hidden">
           <div className="bg-white rounded-12 overflow-hidden">
             <img
               className="block mx-auto w-[150px] h-[150px]"

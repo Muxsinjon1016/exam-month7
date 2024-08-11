@@ -8,11 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { Search } from "./components/search";
 
 export const Home = () => {
-  const { data } = useRenderCategories();
-  const { register } = useForm();
-  const [focused, setFocused] = React.useState(false);
+  const [page, setPage] = React.useState(1);
 
+  const { data } = useRenderCategories(page);
+  const { register } = useForm();
   const navigate = useNavigate();
+  const pageSize = Array(
+    Number(data?.pageSize) ? Number(data?.pageSize) : 0
+  ).fill(null);
 
   return (
     <>
@@ -42,12 +45,23 @@ export const Home = () => {
               <p className="text-b5b5c3 font-extrabold">Category name</p>
               <p className="text-b5b5c3 font-extrabold">Category id</p>
             </div>
-            {data?.map((item) => (
+            {data?.data?.map((item) => (
               <Categories key={item.id} {...item} />
             ))}
+            <div className="flex justify-end mr-10 mt-2 items-center gap-4">
+              {pageSize?.map((_, index) => (
+                <Button
+                  key={index}
+                  onClick={() => setPage(index + 1)}
+                  className={index + 1 === page ? "bg-blue-600 text-white" : ""}
+                  children={index + 1}
+                  variant={"page"}
+                />
+              ))}
+            </div>
           </div>
         </div>
-        <p className="font-bold mt-[60px] text-[#80809b] text-right">
+        <p className="font-bold mt-[20px] text-[#80809b] text-right">
           © Anymarket 2022
         </p>
       </div>

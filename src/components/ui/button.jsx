@@ -9,6 +9,7 @@ export const Button = ({
   className,
   variant,
   onClick,
+  key,
 }) => {
   const variants = {
     submit:
@@ -20,10 +21,12 @@ export const Button = ({
     logOut:
       "py-[10px] px-[12px] bg-[#f7f7ff] font-bold flex items-center gap-4 rounded-6 hover:bg-[#f7f7f9]",
     add: "px-[20px] py-[14px] rounded-6 bg-[#1bc58d] flex items-center gap-2 text-white font-extrabold",
+    page: "py-2 px-4 rounded-6 bg-[#f7f7ff] text-lg font-medium",
   };
 
   return (
     <button
+      key={key}
       onClick={onClick}
       className={clsx(
         "block transition-all duration-300",
