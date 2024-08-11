@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  background-color: #eeeef5;
+}
+
+.tooltip {
+  display: none;
+}
+
+.link:hover .tooltip {
+  display: block;
+}
+
+.categoryCard:hover .categoryCardTitle {
+  border-color: gray;
+}
