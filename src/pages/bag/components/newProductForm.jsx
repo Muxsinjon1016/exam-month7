@@ -76,7 +76,10 @@ export const ProductForm = ({ newProductSubmit, categoryData }) => {
                   className="rounded-12 bg-eee py-4 w-[520px] px-[17px] outline-none mt-2 font-semibold mx-auto block"
                   {...register("categoryId")}
                 >
-                  {categoryData?.map((category) => (
+                  {(categoryData && Array.isArray(categoryData)
+                    ? categoryData
+                    : []
+                  ).map((category) => (
                     <option value={category.id} key={category.id}>
                       {category.title}
                     </option>
@@ -106,8 +109,8 @@ export const ProductForm = ({ newProductSubmit, categoryData }) => {
                 className={
                   "mr-auto block resize-none overflow-y-auto w-[764px] h-[110px]"
                 }
-                type={"textarea"}
-                name={"url"}
+                as={"textarea"} // Changed to 'as'
+                name={"description"} // Changed from 'url' to 'description'
               />
               {errors.description && (
                 <p className="text-red-600 font-medium text-lg">

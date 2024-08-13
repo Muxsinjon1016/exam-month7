@@ -24,6 +24,7 @@ export const AddProduct = () => {
             newProductSubmit={newProductSubmit}
           />
         )}
+        .
       </div>
     </>
   );
